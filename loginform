@@ -4,7 +4,7 @@ import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
 /*<applet code="Myapp.class" width=300 height=300></applet>*/
-public class Myapp extends Applet
+public class Myapp extends Applet implements ActionListener
 {
 TextField name,pass;
     Button b1,b2;
