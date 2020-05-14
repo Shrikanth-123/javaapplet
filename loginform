@@ -6,36 +6,64 @@ import java.awt.event.*;
 /*<applet code="Myapp.class" width=300 height=300></applet>*/
 public class Myapp extends Applet
 {
-    TextField name,pass;
+TextField name,pass;
     Button b1,b2;
+    Label w,n,p;
     public void init()
     {
-        Label n=new Label("Name:",Label.CENTER);
-        Label p=new Label("password:",Label.CENTER);
-        name=new TextField(20);
+         n=new Label("Name:",Label.CENTER);
+         add(n);
+         
+         name=new TextField(20);
+         add(name);
+         
+         p=new Label("password:",Label.CENTER);
+         add(p);
+         
+       
         pass=new TextField(20);
         pass.setEchoChar('$');
-        b1=new Button("submit");
-        b2=new Button("cancel");
-        add(n);
-        add(name);
-        add(p);
         add(pass);
+        
+        b1=new Button("submit");
         add(b1);
+        
+        w=new Label("please login");
+        add(w);
+        
+        b2=new Button("cancel");
         add(b2);
+        
+        b1.addActionListener(this);
         n.setBounds(70,90,90,60);
         p.setBounds(70,130,90,60);
         name.setBounds(280,100,90,20);
         pass.setBounds(200,140,90,20);
+        
         b1.setBounds(100,260,70,40);
         b2.setBounds(180,260,70,40);
- 
+        
+        setBackground(Color.black);
+        setForeground(Color.red);
  
     }
-    public void paint(Graphics g)
+
+    public void actionPerformed(ActionEvent e) 
     {
-        repaint();
+    if(e.getSource()==b1)
+    {
+    	if(name.getText().equals("abc")   &&  pass.getText().equals("123"))
+    	{
+    		w.setText("SUCCESS");
+    	}
+    else
+    {
+    	w.setText("FAILED");
     }
+  }   
+ }
+ 
 }
 
 
+    
